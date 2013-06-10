@@ -4,7 +4,7 @@ import play.api.libs.ws.{WS, Response}
 import play.api.libs.concurrent.Execution.Implicits._
 import scala.concurrent.Future
 
-class Knock {
+class HttpKnock {
 
   def available(url: String): Future[Boolean] =
     request(url).map(_ => true).recover { case _ => false }
