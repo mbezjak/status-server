@@ -1,9 +1,9 @@
 package knock
 
-import play.api.libs.ws.{WS, Response}
-import play.api.libs.concurrent.Execution.Implicits._
-import scala.concurrent.Future
 import java.net.ConnectException
+import play.api.libs.concurrent.Execution.Implicits._
+import play.api.libs.ws.{Response, WS}
+import scala.concurrent.Future
 
 class HttpKnock {
 
