@@ -6,10 +6,11 @@
     <title>Status server</title>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <link href="@routes.Assets.at("css/bootstrap.min.css")" rel="stylesheet" media="screen">
+    <link href="@routes.Assets.at("css/main.css")" rel="stylesheet" media="screen" />
   </head>
 
   <body>
-    @url @available
+    @url <span class="box @{if (available) "green" else "red"}">@available</span>
 
     <script src="@routes.Assets.at("js/jquery-1.10.1.min.js")"></script>
     <script src="@routes.Assets.at("js/bootstrap.min.js")"></script>
