@@ -1,4 +1,4 @@
-@(url: String)(available: Boolean)
+@(urls: Seq[String])(availables: Seq[Boolean])
 
 <!DOCTYPE html>
 <html>
@@ -10,7 +10,9 @@
   </head>
 
   <body>
-    @url <span class="box @{if (available) "green" else "red"}">@available</span>
+    @urls.zip(availables).map { case (url, available) =>
+      <div>@url <span class="box @{if (available) "green" else "red"}">@available</span></div>
+    }
 
     <script src="@routes.Assets.at("js/jquery-1.10.1.min.js")"></script>
     <script src="@routes.Assets.at("js/bootstrap.min.js")"></script>
