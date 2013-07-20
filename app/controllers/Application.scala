@@ -5,12 +5,12 @@ import play.api.mvc._
 import play.api.libs.concurrent.Execution.Implicits._
 import scala.concurrent.Future
 
-import knock.HttpKnock
+import knock.{HttpKnock, Urls}
 
-object Application extends Controller {
+object Application extends Controller with Urls {
 
   def index = Action {
-    val urls    = Seq("http://google.com", "http://wikipedia.com")
+    val urls    = getUrls
     val knock   = new HttpKnock
     val futures = urls map { url => knock available url }
     val future  = Future.sequence(futures)
