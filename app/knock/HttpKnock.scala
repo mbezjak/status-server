@@ -13,6 +13,9 @@ class HttpKnock {
     request(url).map(_ => true).recover { case _: ConnectException => false }
 
   def request(url: String): Future[Response] =
-    WS.url(url).withAuth("none", "none", AuthScheme.NONE).head()
+    WS.url(url).
+      withAuth("none", "none", AuthScheme.NONE).
+      withTimeout(1000).
+      head()
 
 }
