@@ -19,7 +19,7 @@ class HttpKnock {
   def request(url: String): Future[Response] =
     WS.url(url).
       withAuth("none", "none", AuthScheme.NONE).
-      withTimeout(1000).
+      withTimeout(5000).
       head()
 
 }
