@@ -9,15 +9,13 @@ import knock.{HttpKnock, Urls}
 
 object Application extends Controller with Urls {
 
-  def index = Action {
+  def index = Action.async {
     val urls    = getUrls
     val knock   = new HttpKnock
     val futures = urls map { url => knock available url }
     val future  = Future.sequence(futures)
 
-    Async {
-      future map (views.html.index(urls)) map (Ok(_))
-    }
+    future map (views.html.index(urls)) map (Ok(_))
   }
 
 }
