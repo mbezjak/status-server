@@ -5,7 +5,7 @@ import play.Project._
 object ApplicationBuild extends Build {
 
   val appName         = "status-server"
-  val appVersion      = "0.1"
+  val appVersion      = "0.1.1"
 
   val appDependencies = Seq()
 
